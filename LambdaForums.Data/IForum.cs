@@ -6,7 +6,7 @@ namespace LambdaForums.Data
 {
     public interface IForum
     {
-        Forum GetById(int Id);
+        Forum GetById(int id);
         IEnumerable<Forum> GetAll();
         IEnumerable<ApplicationUser> GetAllActiveUsers();
 

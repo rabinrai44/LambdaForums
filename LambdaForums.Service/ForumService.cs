@@ -3,6 +3,7 @@ using LambdaForums.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LambdaForums.Service
@@ -37,9 +38,14 @@ namespace LambdaForums.Service
             throw new NotImplementedException();
         }
 
-        public Forum GetById(int Id)
+        public Forum GetById(int id)
         {
-            throw new NotImplementedException();
+            var forum = _context.Forums.Where(f => f.Id == id) // looking in a forum corresponding forum primary key (id)
+                .Include(f => f.Posts).ThenInclude(p => p.User) // making sure include the Posts property then include the User
+                .Include(f => f.Posts).ThenInclude(p => p.Replies).ThenInclude(r => r.User) // include the Posts then Replies of the posts and the user who may the reply
+                .FirstOrDefault(); // make sure the return the single instance rather than collection of forum
+
+            return forum;
         }
 
         public Task updateForumDescription(int forumId, string newDescription)
