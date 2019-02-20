@@ -22,8 +22,7 @@ namespace LambdaForums.Controllers
             var replies = BuildPostReplies(post.Replies);
 
             var model = new PostIndexModel
-            {
-               
+            {               
                 Id = post.Id,
                 Title = post.Title,
                 AuthorId = post.User.Id,
