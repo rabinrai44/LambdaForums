@@ -41,7 +41,7 @@ namespace LambdaForums.Service
             throw new NotImplementedException();
         }
 
-        public IPost GetById(int id)
+        public Post GetById(int id)
         {
             throw new NotImplementedException();
         }
