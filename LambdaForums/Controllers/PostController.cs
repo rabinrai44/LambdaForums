@@ -41,6 +41,7 @@ namespace LambdaForums.Controllers
             {
                 Id = reply.Id,
                 AuthorName = reply.User.UserName,
+                AuthorId = reply.User.Id,
                 AuthorImageUrl = reply.User.ProfileImageUrl,
                 AuthorRating = reply.User.Rating,
                 Created = reply.Created,
